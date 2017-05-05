@@ -11,6 +11,7 @@ from xtest_sdk import TestReport, dict_encode_test_results
 # todo 在系统中注册了,组织信息中看到这个值,替换到此处
 appid = '56dd4df26c9----------95'
 appkey = 'jweDdTOrGcXbVvBqWnIEAf------'
+project_id = '590-------94a52f----'
 
 try:
     from  localconfig import *
@@ -34,14 +35,28 @@ class MyTestDemo(unittest.TestCase):
         运行失败的用例
         :return:
         """
-        self.assertTrue(True, msg='Hello Word是正确的')
+        self.assertTrue(False, msg='Hello Word是正确的')
+
+    def test_first_hello_world_true2(self):
+        """
+        运行失败的用例
+        :return:
+        """
+        self.assertTrue(False, msg='Hello Word是正确的')
 
     def test_first_hello_world_false(self):
         """
         运行正确的用例
         :return:
         """
-        self.assertFalse(False, msg='Hello Word是失败的')
+        self.assertTrue(True, msg='Hello Word是失败的')
+
+    def test_first_hello_world_false2(self):
+        """
+        运行正确的用例
+        :return:
+        """
+        self.assertTrue(True, msg='Hello Word是失败的')
 
 
 if __name__ == '__main__':
@@ -63,7 +78,7 @@ if __name__ == '__main__':
     test_res_dict = dict_encode_test_results(
         test_result,
         run_time=total_time,
-        pro_id='57fa12ec47fc894ee04a2c69',  # todo: 按照线上报表系统设计来弄的,替换掉此处的设置值
+        pro_id=project_id,  # todo: 按照线上报表系统设计来弄的,替换掉此处的设置值
         pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息
     )
 

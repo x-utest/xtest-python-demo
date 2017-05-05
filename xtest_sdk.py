@@ -97,7 +97,7 @@ class TestReport(object):
         )
 
         res = requests.post(url, data=post_data)
-        print(res.text)
+        # print(res.text)
         res_json = json.loads(res.text)
 
         if res_json['code'] != 200:

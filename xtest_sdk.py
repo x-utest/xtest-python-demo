@@ -144,6 +144,7 @@ class TestReport(object):
 
         res = requests.post(url, data=json.dumps(test_res_dict))
         # dlog.debug(res.text)
+        print(res.text)
 
         # 做一个简单的检查
         res_dict = json.loads(res.text)

@@ -143,7 +143,6 @@ class TestReport(object):
         url = '%s/testdata/create-test-data/?token=%s' % (self.base_url, self.token)
 
         res = requests.post(url, data=json.dumps(test_res_dict))
-        # dlog.debug(res.text)
         print(res.text)
 
         # 做一个简单的检查

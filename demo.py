@@ -1,16 +1,15 @@
 """
 Python演示,上传数据
+- python > 3.5
 """
 
 import time
-# 申请的应用的信息
 import unittest
-
 from xtest_sdk import TestReport, dict_encode_test_results
 
 # todo 在系统中注册了,组织信息中看到这个值,替换到此处
-appid = '56dd4df26c9----------95'
-appkey = 'jweDdTOrGcXbVvBqWnIEAf------'
+app_id = '56dd4df26c9----------95'
+app_key = 'jweDdTOrGcXbVvBqWnIEAf------'
 project_id = '590-------94a52f----'
 
 try:
@@ -83,19 +82,16 @@ class MyTestDemo(unittest.TestCase):
 
 if __name__ == '__main__':
     # 使用Pyunit框架可以构建一个如下的测试结果字典,然后上传到服务器即可
-    # 此处为了简单,直接赋值出来
 
-    start_time = time.time()
+    start_time = time.time()  # 测试启动的时刻点
 
-    # 装载测试用例
-    test_cases = unittest.TestLoader().loadTestsFromTestCase(MyTestDemo)
-    # 使用测试套件并打包测试用例
+    test_cases = unittest.TestLoader().loadTestsFromTestCase(MyTestDemo)  # 装载测试用例
     test_suit = unittest.TestSuite()
-    test_suit.addTests(test_cases)
-    # 运行测试套件，并返回测试结果
-    test_result = unittest.TextTestRunner().run(test_suit)
+    test_suit.addTests(test_cases)  # 使用测试套件并打包测试用例
 
-    total_time = time.time() - start_time  # 测试整体的耗时
+    test_result = unittest.TextTestRunner().run(test_suit)  # 运行测试套件，并返回测试结果
+
+    total_time = time.time() - start_time  # 测试过程整体的耗时
 
     test_res_dict = dict_encode_test_results(
         test_result,
@@ -104,8 +100,9 @@ if __name__ == '__main__':
         pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息
     )
 
+    # 下面的内容是将测试报告的结果上传到服务器
     test_report = TestReport()
-    auth_res = test_report.get_api_auth(appid=appid, appkey=appkey)
+    auth_res = test_report.get_api_auth(appid=app_id, appkey=app_key)
     if auth_res:
         test_report.post_unit_test_data(test_res_dict)
     else:

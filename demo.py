@@ -1,21 +1,24 @@
 """
 Python演示,上传数据
 - python > 3.5
+
+参考 wiki：
+
+.. code::
+
+    http://api.apiapp.cc/static/wiki/index.html
+
 """
 
 import time
 import unittest
+
 from xtest_sdk import TestReport, dict_encode_test_results
 
 # todo 在系统中注册了,组织信息中看到这个值,替换到此处
-app_id = '56dd4df26c9----------95'
-app_key = 'jweDdTOrGcXbVvBqWnIEAf------'
-project_id = '590-------94a52f----'
-
-try:
-    from  localconfig import *
-except:
-    print('unexception')
+project_id = '590c2a0947fc894a51f9e616'
+app_id = '3832f354872411e6a7c700163e006b26'
+app_key = '38342936872411e6a7c700163e006b26'
 
 
 class MyTestDemo(unittest.TestCase):

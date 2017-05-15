@@ -84,20 +84,20 @@ class TestReport(object):
         :return:
         """
 
-        appid = kwargs.get('appid', None)
-        appkey = kwargs.get('appkey', None)
+        app_id = kwargs.get('app_id', None)
+        app_key = kwargs.get('app_key', None)
 
-        if appid is None or appkey is None:
+        if app_id is None or app_key is None:
             return
 
         url = '%s/testdata/api-auth/' % self.base_url
         post_data = dict(
-            appid_form=appid,
-            appkey_form=appkey
+            appid_form=app_id,
+            appkey_form=app_key
         )
 
         res = requests.post(url, data=post_data)
-        # print(res.text)
+        print(res.text)
         res_json = json.loads(res.text)
 
         if res_json['code'] != 200:
@@ -126,9 +126,9 @@ class TestReport(object):
                 "details": [
                     {
                         "status": "failures",
-                        "note": "AssertionError: 404 != 403 : gt不等于32位,返回404",
-                        "explain": "gt不等于32位,返回404",
-                        "test_case": "test_getfrontlib_gt_not32"
+                        "note": "AssertionError: 404 != 403",
+                        "explain": "返回404",
+                        "test_case": "test_xx32"
                     },
                     {...},
                     {...}
@@ -147,4 +147,7 @@ class TestReport(object):
 
         # 做一个简单的检查
         res_dict = json.loads(res.text)
-        assert res_dict['code'] == 200
+
+        assert res_dict['code'] == 200, '提交测试数据失败'
+
+        return res_dict

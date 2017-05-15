@@ -16,7 +16,7 @@ import unittest
 from xtest_sdk import TestReport, dict_encode_test_results
 
 # todo 在系统中注册了,组织信息中看到这个值,替换到此处
-project_id = '590c2a0947fc894a51f9e616'
+project_id = '590c2a0947fc894a51f9e616'  # 项目的编号值
 app_id = '3832f354872411e6a7c700163e006b26'
 app_key = '38342936872411e6a7c700163e006b26'
 
@@ -99,13 +99,13 @@ if __name__ == '__main__':
     test_res_dict = dict_encode_test_results(
         test_result,
         run_time=total_time,
-        pro_id=project_id,  # todo: 按照线上报表系统设计来弄的,替换掉此处的设置值
+        pro_id=project_id,
         pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息
     )
 
     # 下面的内容是将测试报告的结果上传到服务器
     test_report = TestReport()
-    auth_res = test_report.get_api_auth(appid=app_id, appkey=app_key)
+    auth_res = test_report.get_api_auth(app_id=app_id, app_key=app_key)
     if auth_res:
         test_report.post_unit_test_data(test_res_dict)
     else:

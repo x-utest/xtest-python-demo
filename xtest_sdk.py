@@ -36,9 +36,14 @@ def dict_encode_test_results(test_results, **kwargs):
     # 详细信息部分
     failure_list = []  # 失败的内容
     for x in test_results.failures:
+        test_case = x[0]._testMethodName
+        method_doc = x[0]._testMethodDoc  # 给测试脚本写的文档
+        assert method_doc is not None, ('请给测试用例%s函数写上文档注释' % test_case)
+        explain = method_doc.rstrip('\n        :return:')
+
         note_data = {
-            'test_case': x[0]._testMethodName,
-            'explain': x[0]._testMethodDoc.rstrip('\n        :return:'),
+            'test_case': test_case,
+            'explain': explain,
             'status': 'failures',
             'note': x[1]
         }
@@ -46,9 +51,14 @@ def dict_encode_test_results(test_results, **kwargs):
         failure_list.append(note_data)
 
     for i in test_results.errors:
+        test_case = i[0]._testMethodName
+        method_doc = i[0]._testMethodDoc  # 给测试脚本写的文档
+        assert method_doc is not None, ('请给测试用例%s函数写上文档注释' % test_case)
+        explain = method_doc.rstrip('\n        :return:')
+
         note_data = {
-            'test_case': i[0]._testMethodName,
-            'explain': i[0]._testMethodDoc.rstrip('\n        :return:'),
+            'test_case': test_case,
+            'explain': explain,
             'status': 'errors',
             'note': i[1]
         }

@@ -9,14 +9,16 @@ Python演示,上传数据
     http://api.apiapp.cc/static/wiki/index.html
 
 """
-
+import json
 import time
 import unittest
+
+import requests
 
 from xtest_sdk import TestReport, dict_encode_test_results
 
 # todo 在系统中注册了,组织信息中看到这个值,替换到此处
-project_id = '590c2a0947fc894a51f9e616'
+project_id = '590c2a0947fc894a51f9e616'  # 项目的编号值
 app_id = '3832f354872411e6a7c700163e006b26'
 app_key = '38342936872411e6a7c700163e006b26'
 
@@ -31,6 +33,25 @@ class MyTestDemo(unittest.TestCase):
 
     def tearDown(self):
         pass
+
+    def test_web_info_api(self):
+        """
+        用来测试 api服务是否有版本信息接口
+        :return: 
+        """
+        # url = 'http://api.apiapp.cc/app-info/'
+        url = 'http://xxx.xxx.cc/app-info/'
+        res = requests.get(url)
+        res_json = json.loads(res.text)
+        app_version = res_json.get('data').get('app_version', None)
+        self.assertNotEqual(app_version, None, msg='这个服务器里面必须要有这个接口')
+
+    def test_first_hello_world_true(self):
+        """
+        运行正确的用例
+        :return:
+        """
+        self.assertTrue(True, msg='Hello Word是正确的')
 
     def test_first_hello_world_true(self):
         """
@@ -99,13 +120,13 @@ if __name__ == '__main__':
     test_res_dict = dict_encode_test_results(
         test_result,
         run_time=total_time,
-        pro_id=project_id,  # todo: 按照线上报表系统设计来弄的,替换掉此处的设置值
+        pro_id=project_id,
         pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息
     )
 
     # 下面的内容是将测试报告的结果上传到服务器
     test_report = TestReport()
-    auth_res = test_report.get_api_auth(appid=app_id, appkey=app_key)
+    auth_res = test_report.get_api_auth(app_id=app_id, app_key=app_key)
     if auth_res:
         test_report.post_unit_test_data(test_res_dict)
     else:

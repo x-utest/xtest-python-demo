@@ -11,6 +11,12 @@
 1. 图表化展示结果
 
 
+在使用本程序之前，请先在 [xtest](http://xtest.apiapp.cc) 系统中注册，并获取配置信息：
+
+```
+http://xtest.apiapp.cc
+```
+
 # 运行环境
 
 - python3.5

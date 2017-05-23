@@ -45,8 +45,14 @@ http://xtest.apiapp.cc
 
 # 使用方法
 
+```
+cd xtest-python-demo
+./install.sh
+```
 
-1. 打开 `gtt_api_demo.py`
+这样 xtest 的sdk就安装成功了。
+
+1. 打开 `demo.py`
 1. 将 `app_id`,`app_key`,`pro_id`替换成自己在系统中注册的账号提供的内容
 1. 直接运行此文件
 

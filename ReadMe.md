@@ -30,9 +30,9 @@ http://xtest.apiapp.cc
 # 文件介绍
 
 
-- `xtest_sdk.py`
+- `./xtest/sdk.py`
     对接口进行的封装和一些工具函数，使用的库文件
-- `xtest_demo.py`
+- `demo.py`
     接口的调用demo
 
 

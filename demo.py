@@ -121,7 +121,7 @@ if __name__ == '__main__':
         test_result,
         run_time=total_time,
         pro_id=project_id,
-        pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息
+        pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息，如果服务端提供接口，则可以做成自动化的
     )
 
     # 下面的内容是将测试报告的结果上传到服务器

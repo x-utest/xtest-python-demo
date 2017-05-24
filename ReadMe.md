@@ -62,7 +62,7 @@ python demo.py
 
 然后就可以在 xtest 系统中看到图表了：
 
-[](xtest-share-report.png)
+![](xtest-share-report.png)
 
 
 

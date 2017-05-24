@@ -65,6 +65,15 @@ python demo.py
 ![](xtest-share-report.png)
 
 
+# 友情链接
+
+
+[使用文本文件写自动化测试用例](https://github.com/TesterlifeRaymond/doraemon)：
+
+```
+https://github.com/TesterlifeRaymond/doraemon
+```
+
 
 # 发布公告
 

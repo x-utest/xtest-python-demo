@@ -56,6 +56,14 @@ cd xtest-python-demo
 1. 将 `app_id`,`app_key`,`pro_id`替换成自己在系统中注册的账号提供的内容
 1. 直接运行此文件
 
+```
+python demo.py
+```
+
+然后就可以在 xtest 系统中看到图表了：
+
+[](xtest-share-report.png)
+
 
 
 # 发布公告

@@ -5,7 +5,21 @@
 - 支持python3.x
 """
 import json
+import unittest
+
 import requests
+
+
+def get_case_list_from_cls(test_cls_list):
+    """
+    将测试类转化为测试用例
+    :return: 
+    """
+    test_list = []
+    for test_cls in test_cls_list:
+        test_cases = unittest.TestLoader().loadTestsFromTestCase(test_cls)
+        test_list.append(test_cases)
+    return test_list
 
 
 def dict_encode_test_results(test_results, **kwargs):

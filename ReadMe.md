@@ -104,6 +104,7 @@ http://git.oschina.net/pinghailinfeng/nbmock
 - 第二版的demo
 - 以项目组织的多文件
 - 开始准备写大型的测试项目了
+- 加入了对版本信息的api的测试用例
 
 
 ## 1.16.10.21.1

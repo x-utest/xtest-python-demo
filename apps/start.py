@@ -4,21 +4,26 @@ import time
 
 from apps.xtest_cfg import project_id, app_id, app_key
 from apps.hello_test import MyTestDemo
-from xtest.sdk import dict_encode_test_results, TestReport
+from xtest.sdk import dict_encode_test_results, TestReport, get_case_list_from_cls
 
 if __name__ == '__main__':
-    # 使用Pyunit框架可以构建一个如下的测试结果字典,然后上传到服务器即可
+    # 1. 使用Pyunit框架可以构建一个如下的测试结果字典
+    # 2. 然后上传到服务器即可
 
     start_time = time.time()  # 测试启动的时刻点
 
-    test_cases = unittest.TestLoader().loadTestsFromTestCase(MyTestDemo)  # 装载测试用例
+    test_case_list = get_case_list_from_cls([
+        MyTestDemo,
+        # todo 在项目里面再定义别的测试类，然后装载进来即可
+    ])  # 装载测试用例
+
     test_suit = unittest.TestSuite()
-    test_suit.addTests(test_cases)  # 使用测试套件并打包测试用例
+    test_suit.addTests(test_case_list)  # 使用测试套件并打包测试用例
 
     test_result = unittest.TextTestRunner().run(test_suit)  # 运行测试套件，并返回测试结果
 
+    # 下面的部分，全部是和xtest系统进行对接的内容
     total_time = time.time() - start_time  # 测试过程整体的耗时
-
     test_res_dict = dict_encode_test_results(
         test_result,
         run_time=total_time,

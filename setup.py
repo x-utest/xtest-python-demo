@@ -1,8 +1,8 @@
-#!coding:utf8
 from distutils.core import *
-import hacklib
 
-current_version = hacklib.VERSION
+import xtest
+
+current_version = xtest.VERSION
 
 if __name__ == '__main__':
     with open('requirements.txt') as f:

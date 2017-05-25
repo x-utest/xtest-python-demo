@@ -22,7 +22,7 @@ http://xtest.apiapp.cc
 - app_key
 - pro_id
 
-修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数
+修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数。
 
 # 运行环境
 
@@ -71,6 +71,17 @@ python apps/start.py
 然后就可以在 xtest 系统中看到图表了：
 
 ![](xtest-share-report.png)
+
+
+因为本demo是使用的作者的账号组织的配置，所以数据都在作者的账号系统里面，有兴趣观看的朋友，可以通过如下步骤进行查看：
+
+1. 打开 [xtest.apiapp.cc](xtest.apiapp.cc)
+2. 扫码登录
+3. 在同一浏览器里面新tab页面里面打开[邀请链接](http://api.apiapp.cc/account/accept-org-invite-by-link/?invite_code=ade39bae403211e7955a00163e006b26)
+4. 成为demo演示组的成员
+5. 即可完全看到相应的数据
+6. 如果想退出此组织，直接点击退出按钮
+
 
 
 # 友情链接

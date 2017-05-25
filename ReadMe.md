@@ -34,8 +34,11 @@ http://xtest.apiapp.cc
 
 - `./xtest/sdk.py`
     对接口进行的封装和一些工具函数，使用的库文件
-- `demo.py`
-    接口的调用demo
+- `apps`
+    接口测试的项目
+
+    - start.py 测试项目运行
+    - xtest_cfg 测试项目线上报告系统配置
 
 
 

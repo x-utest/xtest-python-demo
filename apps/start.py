@@ -2,7 +2,7 @@ import unittest
 
 import time
 
-from apps.config import project_id, app_id, app_key
+from apps.xtest_cfg import project_id, app_id, app_key
 from apps.hello_test import MyTestDemo
 from xtest.sdk import dict_encode_test_results, TestReport
 

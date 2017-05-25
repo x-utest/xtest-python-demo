@@ -22,6 +22,8 @@ http://xtest.apiapp.cc
 - app_key
 - pro_id
 
+修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数
+
 # 运行环境
 
 - python3.5

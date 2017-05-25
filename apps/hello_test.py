@@ -16,8 +16,6 @@ class MyTestDemo(MyBaseTest):
     def tearDown(self):
         pass
 
-
-
     def test_first_hello_world_true(self):
         """
         运行正确的用例

@@ -2,6 +2,7 @@ import unittest
 
 import time
 
+from apps.base.units import BaseApi
 from apps.xtest_cfg import project_id, app_id, app_key
 from apps.hello_test import MyTestDemo
 from xtest.sdk import dict_encode_test_results, TestReport, get_case_list_from_cls
@@ -14,6 +15,7 @@ if __name__ == '__main__':
 
     test_case_list = get_case_list_from_cls([
         MyTestDemo,
+        BaseApi,
         # todo 在项目里面再定义别的测试类，然后装载进来即可
     ])  # 装载测试用例
 

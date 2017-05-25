@@ -1,29 +1,11 @@
-"""
-Python演示,上传数据
-- python > 3.5
-
-参考 wiki：
-
-.. code::
-
-    http://api.apiapp.cc/static/wiki/index.html
-
-"""
 import json
-import time
-import unittest
 
 import requests
 
-# todo 在系统中注册了,组织信息中看到这个值,替换到此处
-from xtest.sdk import TestReport, dict_encode_test_results
-
-project_id = '590c2a0947fc894a51f9e616'  # 项目的编号值
-app_id = '3832f354872411e6a7c700163e006b26'
-app_key = '38342936872411e6a7c700163e006b26'
+from apps.my_base import MyBaseTest, domain
 
 
-class MyTestDemo(unittest.TestCase):
+class MyTestDemo(MyBaseTest):
     """
     pyunit使用示例
     """
@@ -39,8 +21,7 @@ class MyTestDemo(unittest.TestCase):
         用来测试 api服务是否有版本信息接口
         :return: 
         """
-        # url = 'http://api.apiapp.cc/app-info/'
-        url = 'http://xxx.xxx.cc/app-info/'
+        url = '%s/app-info/' % domain
         res = requests.get(url)
         res_json = json.loads(res.text)
         app_version = res_json.get('data').get('app_version', None)
@@ -102,32 +83,3 @@ class MyTestDemo(unittest.TestCase):
         :return:
         """
         self.assertTrue(True, msg='Hello Word是失败的')
-
-
-if __name__ == '__main__':
-    # 使用Pyunit框架可以构建一个如下的测试结果字典,然后上传到服务器即可
-
-    start_time = time.time()  # 测试启动的时刻点
-
-    test_cases = unittest.TestLoader().loadTestsFromTestCase(MyTestDemo)  # 装载测试用例
-    test_suit = unittest.TestSuite()
-    test_suit.addTests(test_cases)  # 使用测试套件并打包测试用例
-
-    test_result = unittest.TextTestRunner().run(test_suit)  # 运行测试套件，并返回测试结果
-
-    total_time = time.time() - start_time  # 测试过程整体的耗时
-
-    test_res_dict = dict_encode_test_results(
-        test_result,
-        run_time=total_time,
-        pro_id=project_id,
-        pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息，如果服务端提供接口，则可以做成自动化的
-    )
-
-    # 下面的内容是将测试报告的结果上传到服务器
-    test_report = TestReport()
-    auth_res = test_report.get_api_auth(app_id=app_id, app_key=app_key)
-    if auth_res:
-        test_report.post_unit_test_data(test_res_dict)
-    else:
-        print('auth error...')

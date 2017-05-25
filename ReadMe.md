@@ -52,12 +52,15 @@ cd xtest-python-demo
 
 这样 xtest 的sdk就安装成功了。
 
-1. 打开 `demo.py`
+
+运行起示例的方法：
+
 1. 将 `app_id`,`app_key`,`pro_id`替换成自己在系统中注册的账号提供的内容
 1. 直接运行此文件
 
 ```
-python demo.py
+cd xtest-python-demo
+python apps/start.py
 ```
 
 然后就可以在 xtest 系统中看到图表了：
@@ -84,6 +87,14 @@ http://git.oschina.net/pinghailinfeng/nbmock
 # 发布公告
 
 
+## 1.17.5.25.1
+
+- 第二版的demo
+- 以项目组织的多文件
+- 开始准备写大型的测试项目了
+
+
 ## 1.16.10.21.1
 
 - 第一版的demo
+- 单个文件的test项目

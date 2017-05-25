@@ -86,6 +86,14 @@ https://github.com/TesterlifeRaymond/doraemon
 http://git.oschina.net/pinghailinfeng/nbmock
 ```
 
+
+# 项目实战
+
+为了让本项目有更实际的意义，所以决定将 xtest 这个系统的接口自动化测试给开源出来，大家可以一起看和点评，同时可以一起来写。
+
+如果有兴趣一起写的的朋友，可以加入 互联网软件测试开发群： 207548681
+
+
 # 发布公告
 
 

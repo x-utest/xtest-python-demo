@@ -113,6 +113,17 @@ http://git.oschina.net/pinghailinfeng/nbmock
 
      207548681
 
+# 资料分享
+
+如果有对测试开发还没入门的小白用户，这里面有`免费`的精品资料（精美文档和视频资料）。
+
+[基于python的互联网软件测试开发（自动化测试）-全集合](http://www.cnblogs.com/beer/p/6381327.html)
+
+```
+http://www.cnblogs.com/beer/p/6381327.html
+```
+
+没错，我就是活雷锋，你来咬我啊！
 
 # 发布公告
 

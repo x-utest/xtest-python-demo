@@ -4,6 +4,7 @@ import time
 
 from apps.base.units import BaseApi
 from apps.sharetool.units import ShareToolApi
+from apps.utils import get_project_version
 from apps.xtest_cfg import project_id, app_id, app_key
 from apps.hello_test import MyTestDemo
 from xtest.sdk import dict_encode_test_results, TestReport, get_case_list_from_cls
@@ -27,12 +28,16 @@ if __name__ == '__main__':
     test_result = unittest.TextTestRunner().run(test_suit)  # 运行测试套件，并返回测试结果
 
     # 下面的部分，全部是和xtest系统进行对接的内容
+    pro_version = get_project_version()
+    if pro_version is None:
+        pro_version = '0.0.0.0'
+
     total_time = time.time() - start_time  # 测试过程整体的耗时
     test_res_dict = dict_encode_test_results(
         test_result,
         run_time=total_time,
         pro_id=project_id,
-        pro_version='2.17.5.5.1'  # 当前被测试的系统的版本号,依据目前系统的信息，如果服务端提供接口，则可以做成自动化的
+        pro_version=pro_version  # 当前被测试的系统的版本号,依据目前系统的信息，如果服务端提供接口，则可以做成自动化的
     )
 
     # 下面的内容是将测试报告的结果上传到服务器

@@ -93,7 +93,7 @@ python apps/start.py
 https://github.com/TesterlifeRaymond/doraemon
 ```
 
-一个用来模拟服务器端返回请求的[测试平台](http://git.oschina.net/pinghailinfeng/nbmock)，也可以用于档板测试
+[一个用来模拟服务器端返回请求的测试平台,也可以用于档板测试](http://git.oschina.net/pinghailinfeng/nbmock)
 
 
 ```

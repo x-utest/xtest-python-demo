@@ -72,6 +72,10 @@ python apps/start.py
 
 ![](xtest-share-report.png)
 
+然后随着一次次发布版本，进行测试，可以形成项目的成长曲线：
+
+![](project-record.png)
+
 
 因为本demo是使用的作者的账号组织的配置，所以数据都在作者的账号系统里面，有兴趣观看的朋友，可以通过如下步骤进行查看：
 

@@ -70,11 +70,11 @@ cd xtest-python-demo
 python apps/start.py
 ```
 
-然后就可以在 xtest 系统中看到图表了：
+然后就可以在 xtest 系统中看到`测试报告图表`了：
 
 ![](xtest-share-report.png)
 
-然后随着一次次发布版本，进行测试，可以形成项目的成长曲线：
+然后随着一次次发布版本，进行测试，可以形成`项目的成长曲线`：
 
 ![](project-record.png)
 

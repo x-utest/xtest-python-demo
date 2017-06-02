@@ -26,10 +26,16 @@ http://xtest.apiapp.cc
 
 修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数。
 
+
+
 # 运行环境
 
 - python3.5
 
+
+# 使用流程
+
+![](work-flow.jpeg)
 
 # 文件介绍
 

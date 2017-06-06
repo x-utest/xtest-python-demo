@@ -20,7 +20,7 @@ if __name__ == '__main__':
         MyTestDemo,
         BaseApi,
         ShareToolApi,  # 分享的公共
-        AnoymousAccountApi,  # 匿名的账号接口
+        # AnoymousAccountApi,  # 匿名的账号接口
         LoginAccountApi,  # 登录的账号接口
         # todo 在项目里面再定义别的测试类，然后装载进来即可
     ])  # 装载测试用例

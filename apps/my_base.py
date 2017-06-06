@@ -4,8 +4,6 @@
 import json
 import unittest
 
-import requests
-
 domain = 'http://api.apiapp.cc'  # 接口测试的根域名
 
 
@@ -29,7 +27,7 @@ class MyBaseTest(unittest.TestCase):
         :return:
         """
         status_code = res.status_code
-        self.assertEqual(status_code, 200, msg='服务能正常响应')
+        self.assertEqual(status_code, 200, msg='服务需要能正常响应')
 
     def assertResCodeOk(self, res_text):
         """
@@ -38,7 +36,16 @@ class MyBaseTest(unittest.TestCase):
         :return:
         """
         code = json.loads(res_text).get('code', None)
-        self.assertEqual(code, 200, msg='服务能正常返回值')
+        self.assertEqual(code, 200, msg='业务接口需要能按照设定的模板返回值')
+
+    def assertResCodeForbidden(self, res_text):
+        """
+        服务能完成正常的通讯流程
+        :param res_text:
+        :return:
+        """
+        code = json.loads(res_text).get('code', None)
+        self.assertEqual(code, 403, msg='业务接口返回值为禁止')
 
 
 class MyLoginBaseTest(MyBaseTest):
@@ -47,21 +54,23 @@ class MyLoginBaseTest(MyBaseTest):
         一些参数设置
         """
         super(MyLoginBaseTest, self).__init__(*args, **kwargs)
+
         self.path = '%s/account' % domain
-
-        url = self.path + '/user-login/'
-
-        post_data = dict(
-            user='test_user',
-            password='asdf1234',
-        )
-
-        res = requests.post(url, data=json.dumps(post_data))
-
-        # print(res.text)
-
-        res_json = json.loads(res.text)
-        self.token = res_json['data']['token']
+        # todo 通过任意的方式进行登录，然后获取到token,替换到此处
+        self.token = 'ce4900384a8611e7939200163e006b26815f445e'
+        # url = self.path + '/user-login/'
+        #
+        # post_data = dict(
+        #     user='test_user',
+        #     password='asdf1234',
+        # )
+        #
+        # res = requests.post(url, data=json.dumps(post_data))
+        #
+        # # print(res.text)
+        #
+        # res_json = json.loads(res.text)
+        # self.token = res_json['data']['token']
 
     def wrap_param_with_token(self, param_dict):
         """

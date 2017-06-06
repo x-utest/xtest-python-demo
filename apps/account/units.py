@@ -7,7 +7,7 @@ from apps.my_base import MyBaseTest, domain, MyLoginBaseTest
 
 class AnoymousAccountApi(MyBaseTest):
     """
-    匿名非登录接口服务端的基础接口
+    匿名非登录接口服务端的基础接口，此接口单独测试，属于用户风控体系
     """
 
     def setUp(self):
@@ -87,12 +87,17 @@ class LoginAccountApi(MyLoginBaseTest):
         pass
         # self.token = None  # 登录后换取的token
 
-    def test_login_api(self):
+    def test_get_auth_user_info(self):
         """
-        测试登录状态的接口
+        获取登录用户的详细信息
         :return:
         """
-        self.assertFalse(True, msg='只是做个测试init')
+        url = self.path + '/get-auth-user-info/'
+        param = {}
+        param = self.wrap_param_with_token(param)
+        res = requests.get(url, params=param)
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
     def test_get_user_org(self):
         """
@@ -119,3 +124,30 @@ class LoginAccountApi(MyLoginBaseTest):
         res = requests.get(url, params=param)
         self.assertStatusOk(res)
         self.assertResCodeOk(res.text)
+
+    def test_feedback(self):
+        """
+        测试反馈接口
+        :return:
+        """
+        url = self.path + "/feedback/"
+
+        # 插入正常值
+        post_data = dict(
+            msg='测试反馈消息'
+        )
+        post_data = self.wrap_param_with_token(post_data)
+
+        res = requests.post(url, data=json.dumps(post_data))
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
+
+        # 插入空字符串
+        post_data = dict(
+            msg=''
+        )
+        post_data = self.wrap_param_with_token(post_data)
+        res = requests.post(url, data=json.dumps(post_data))
+        res_json = json.loads(res.text)
+        code = res_json.get('code', None)
+        self.assertEqual(code, 400, msg='插入空字符串是不被接受的')

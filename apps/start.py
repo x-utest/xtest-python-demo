@@ -2,7 +2,7 @@ import unittest
 
 import time
 
-from apps.account.units import AnoymousAccountApi
+from apps.account.units import AnoymousAccountApi, LoginAccountApi
 from apps.base.units import BaseApi
 from apps.sharetool.units import ShareToolApi
 from apps.utils import get_project_version
@@ -20,7 +20,8 @@ if __name__ == '__main__':
         MyTestDemo,
         BaseApi,
         ShareToolApi,  # 分享的公共
-        AnoymousAccountApi,  # 账号体系
+        AnoymousAccountApi,  # 匿名的账号接口
+        LoginAccountApi,  # 登录的账号接口
         # todo 在项目里面再定义别的测试类，然后装载进来即可
     ])  # 装载测试用例
 

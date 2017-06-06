@@ -21,3 +21,6 @@ def get_project_version():
     res_json = json.loads(res.text)
     app_version = res_json.get('data').get('app_version', None)
     return app_version
+
+
+

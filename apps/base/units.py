@@ -20,9 +20,8 @@ class BaseApi(MyBaseTest):
         """
         url = self.path + '/'
         res = requests.get(url)
-
-        code = res.status_code
-        self.assertEqual(code, 200, msg='这个服务器home页面要有返回值')
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
     def test_web_info_api(self):
         """
@@ -31,6 +30,8 @@ class BaseApi(MyBaseTest):
         """
         url = self.path + '/app-info/'
         res = requests.get(url)
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
         res_json = json.loads(res.text)
         app_version = res_json.get('data').get('app_version', None)
         self.assertNotEqual(app_version, None, msg='这个服务器里面必须要有这个接口')
@@ -48,11 +49,8 @@ class BaseApi(MyBaseTest):
         )
 
         res = requests.post(url, data=post_data)
-
-        res_json = json.loads(res.text)
-
-        code = res_json.get('code', None)
-        self.assertEqual(code, 200, msg='能够正常的插入返回值')
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
         # 插入空字符串
         post_data = dict(

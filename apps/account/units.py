@@ -73,10 +73,8 @@ class AnoymousAccountApi(MyBaseTest):
         )
 
         res = requests.get(logout_url, params=get_data)
-        print(res.text)
-
-        code = json.loads(res.text).get('code', None)
-        self.assertEqual(code, 200, msg='这个服务器home页面要有返回值')
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
 
 class LoginAccountApi(MyLoginBaseTest):
@@ -90,4 +88,34 @@ class LoginAccountApi(MyLoginBaseTest):
         # self.token = None  # 登录后换取的token
 
     def test_login_api(self):
+        """
+        测试登录状态的接口
+        :return:
+        """
         self.assertFalse(True, msg='只是做个测试init')
+
+    def test_get_user_org(self):
+        """
+        获取登录用户的组织信息
+        :return:
+        """
+        url = self.path + '/get-auth-user-org/'
+
+        param = {}
+        param = self.wrap_param_with_token(param)
+        res = requests.get(url, params=param)
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
+
+    def test_get_auth_user_all_orgs_info(self):
+        """
+        获取用户所有的全部组织信息
+        :return:
+        """
+
+        url = self.path + '/get-auth-user-all-orgs-info/'
+        param = {}
+        param = self.wrap_param_with_token(param)
+        res = requests.get(url, params=param)
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)

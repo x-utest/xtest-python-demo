@@ -20,13 +20,12 @@ class ShareToolApi(MyBaseTest):
         url = self.path + '/get-client-info/'
 
         res = requests.get(url)
+
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
+
+        # 详细的业务数据层次的测试
         res_json = json.loads(res.text)
-
-        # 只写最简单的,后面再不断完善用例
-
-        code = res_json.get('code', None)
-        self.assertEqual(code, 200, msg='能够正常接受请求')
-
         remote_ip = res_json.get('data').get('remote_ip', None)
         self.assertNotEqual(remote_ip, None, msg='可以获取到客户端的IP地址')
 
@@ -38,12 +37,8 @@ class ShareToolApi(MyBaseTest):
         url = self.path + '/async-sleep-demo/'
 
         res = requests.get(url)
-        res_json = json.loads(res.text)
-
-        # 只写最简单的,后面再不断完善用例
-
-        code = res_json.get('code', None)
-        self.assertEqual(code, 200, msg='能够正常接受请求')
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
     def test_sync_sleep_demo(self):
         """
@@ -53,12 +48,8 @@ class ShareToolApi(MyBaseTest):
         url = self.path + '/sync-sleep-demo/'
 
         res = requests.get(url)
-        res_json = json.loads(res.text)
-
-        # 只写最简单的,后面再不断完善用例
-
-        code = res_json.get('code', None)
-        self.assertEqual(code, 200, msg='能够正常接受请求')
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)
 
     def test_just_now_demo(self):
         """
@@ -68,10 +59,5 @@ class ShareToolApi(MyBaseTest):
         url = self.path + '/just-now-handler/'
 
         res = requests.get(url)
-        res_json = json.loads(res.text)
-
-        # 只写最简单的,后面再不断完善用例
-
-        code = res_json.get('code', None)
-        self.assertEqual(code, 200, msg='能够正常接受请求')
-
+        self.assertStatusOk(res)
+        self.assertResCodeOk(res.text)

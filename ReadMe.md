@@ -13,20 +13,25 @@
 1. 图表化展示结果
 
 
+
+# xtest项目配置信息
+
 在使用本程序之前，请先在 [xtest](http://xtest.apiapp.cc) 系统中注册，
 ```
 http://xtest.apiapp.cc
 ```
 
-并获取具体项目的配置信息：
 
-- app_id
-- app_key
-- pro_id
+在 [Xtest系统](http://xtest.apiapp.cc) 中获取本项目（xtest-python-demo）的配置信息：
+
+```
+project_id = 590c2a0947fc894a51f9e616
+app_id = 3832f354872411e6a7c700163e006b26
+app_key = 38342936872411e6a7c700163e006b26
+
+```
 
 修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数。
-
-
 
 # 运行环境
 

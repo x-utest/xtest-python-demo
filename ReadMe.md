@@ -13,6 +13,8 @@
 1. 图表化展示结果
 
 
+由于测试信息相当于软件系统的“体检信息”，具备一定的隐私性。所以特将此系统修改成本地局域网系统，并开源给大家，促进行业进步。
+
 # 搭建xtest
 
 具体源码请参考：
@@ -27,7 +29,12 @@ https://github.com/x-utest
 http://xtest.readthedocs.io/zh/latest/
 ```
 
+搭建好的系统演示：（todo)
 
+
+
+
+# 使用方法
 
 
 
@@ -92,25 +99,14 @@ python apps/start.py
 
 然后就可以在 xtest 系统中看到`测试报告图表`了 :
 
-[点击这里查看](http://xtest.apiapp.cc/utest-report-share.html?stoken=2d1f91004a6711e7a6a000163e006b2607ca9d5b)
 
 ![](xtest-share-report.png)
 
 然后随着一次次发布版本，进行测试，可以形成`项目的成长曲线` :
 
-[点击这里查看](http://xtest.apiapp.cc/pro-report-share.html?stoken=09d6065e49c011e7927a00163e006b26104f31e2)
-
 ![](project-record.png)
 
 
-因为本demo是使用的作者的账号组织的配置，所以数据都在作者的账号系统里面，有兴趣观看的朋友，可以通过如下步骤进行查看：
-
-1. 打开 [xtest.apiapp.cc](xtest.apiapp.cc)
-2. 扫码登录
-3. 在同一浏览器里面新tab页面里面打开[邀请链接](http://api.apiapp.cc/account/accept-org-invite-by-link/?invite_code=ade39bae403211e7955a00163e006b26)
-4. 成为demo演示组的成员
-5. 即可完全看到相应的数据
-6. 如果想退出此组织，直接点击退出按钮
 
 
 
@@ -153,7 +149,7 @@ http://git.oschina.net/pinghailinfeng/nbmock
 http://www.cnblogs.com/beer/p/6381327.html
 ```
 
-没错，我就是活雷锋，你来咬我啊！
+大家多分享，多传播
 
 # 发布公告
 

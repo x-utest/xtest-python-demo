@@ -64,7 +64,7 @@ class MyTestDemo(MyBaseTest):
 
     @skip('just demo')
     def test_first_hello_world_false4(self):
-        """此处删除数据后不应该还能查询得到
+        """这是一个强制的Demo为执行失败的用
         :return:
         """
-        self.assertTrue(True, msg='Hello Word是失败的')
+        self.assertTrue(False, msg='Hello Word是失败的')

@@ -13,16 +13,25 @@
 1. 图表化展示结果
 
 
+# 搭建xtest
 
-# xtest项目配置信息
+具体源码请参考：
 
-在使用本程序之前，请先在 [xtest](http://xtest.apiapp.cc) 系统中注册，
 ```
-http://xtest.apiapp.cc
+https://github.com/x-utest
+```
+
+系统说明：
+
+```
+http://xtest.readthedocs.io/zh/latest/
 ```
 
 
-在 [Xtest系统](http://xtest.apiapp.cc) 中获取本项目（xtest-python-demo）的配置信息：
+
+
+
+在 [Xtest系统]() 中获取本项目（xtest-python-demo）的配置信息：
 
 ```
 project_id = 590c2a0947fc894a51f9e616

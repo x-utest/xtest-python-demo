@@ -89,7 +89,7 @@ class TestReport(object):
     """
 
     def __init__(self):
-        self.base_url = 'http://api.apiapp.cc'
+        self.base_url = 'http://192.168.1.200:8009'
         self.token = None
         self.appid = None
         self.appkey = None

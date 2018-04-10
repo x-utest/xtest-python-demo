@@ -10,6 +10,7 @@ from apps.xtest_cfg import project_id, app_id, app_key
 from apps.hello_test import MyTestDemo
 from xtest.sdk import dict_encode_test_results, TestReport, get_case_list_from_cls
 
+
 if __name__ == '__main__':
     # 1. 使用Pyunit框架可以构建一个如下的测试结果字典
     # 2. 然后上传到服务器即可
@@ -20,7 +21,7 @@ if __name__ == '__main__':
         MyTestDemo,
         BaseApi,
         ShareToolApi,  # 分享的公共
-        # AnoymousAccountApi,  # 匿名的账号接口
+        AnoymousAccountApi,  # 匿名的账号接口
         LoginAccountApi,  # 登录的账号接口
         # todo 在项目里面再定义别的测试类，然后装载进来即可
     ])  # 装载测试用例
@@ -31,9 +32,12 @@ if __name__ == '__main__':
     test_result = unittest.TextTestRunner().run(test_suit)  # 运行测试套件，并返回测试结果
 
     # 下面的部分，全部是和xtest系统进行对接的内容
-    pro_version = get_project_version()
-    if pro_version is None:
-        pro_version = '0.0.0.0'
+
+    # 根据实际项目, 编写获取测试项目的版本号
+    # pro_version = get_project_version()
+    # if pro_version is None:
+    #     pro_version = '0.0.0.0'
+    pro_version = '0.0.0.0'
 
     total_time = time.time() - start_time  # 测试过程整体的耗时
     test_res_dict = dict_encode_test_results(
@@ -45,6 +49,10 @@ if __name__ == '__main__':
 
     # 下面的内容是将测试报告的结果上传到服务器
     test_report = TestReport()
+
+    # 将此处 IP 修改为你的 x-utest 测试系统的 IP
+    test_report.base_url = 'http://127.0.0.1:8009'
+    
     auth_res = test_report.get_api_auth(
         app_id=app_id,
         app_key=app_key

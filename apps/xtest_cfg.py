@@ -2,6 +2,6 @@
 来自于xtest的config文件
 """
 
-project_id = '590c2a0947fc894a51f9e616'  # 项目的编号值
-app_id = '3832f354872411e6a7c700163e006b26'
-app_key = '38342936872411e6a7c700163e006b26'
+project_id = '5aa8814bcb5fda636163263d'  # 项目的编号值
+app_id = '7da3d85c272a11e89c65fa163e5f7caa'
+app_key = '874ab29b23829a4042b2f1a4d2bc6cb8'

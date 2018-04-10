@@ -1,6 +1,6 @@
 # 测试报告系统
 
-- [Xtest系统](http://xtest.apiapp.cc)
+- [Xtest系统](http://gtestbce.gtapp.xyz)
 - [Xtest-wiki](http://xtest.readthedocs.io/zh/latest/)
 
 
@@ -15,17 +15,19 @@
 1. 上传测试结果
 1. 图表化展示结果
 
+# 环境要求
 
+- python3.5
 
-# xtest项目配置信息
+# demo 使用方法
 
-在使用本程序之前，请先在 [xtest](http://xtest.apiapp.cc) 系统中注册，
-```
-http://xtest.apiapp.cc
-```
+1. 在使用本程序之前，请先部署 [x-utest系统](https://github.com/x-utest/xtest-docker-compose)
 
+2. 部署完成后, 在web管理页面创建一个测试项目
 
-在 [Xtest系统](http://xtest.apiapp.cc) 中获取本项目（xtest-python-demo）的配置信息：
+3. 在web管理页面点击项目右侧"详情"按钮, 获取本项目（xtest-python-demo）需要的配置信息
+
+4. 修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数为你的项目的参数
 
 ```
 project_id = 590c2a0947fc894a51f9e616
@@ -34,12 +36,13 @@ app_key = 38342936872411e6a7c700163e006b26
 
 ```
 
-修改本项目中的 `./apps/xtest_cfg.py` 中的配置参数。
+5. 修改本项目（xtest-python-demo）根目录的`start.py`中的 IP 为你的 x-utest 系统的IP
 
-# 运行环境
+6. 在项目根目录执行如下命令完成测试代码的执行与上传:
 
-- python3.5
-
+```
+python start.py
+```
 
 # 使用流程
 
@@ -84,7 +87,7 @@ cd xtest-python-demo
 python apps/start.py
 ```
 
-然后就可以在 xtest 系统中看到`测试报告图表`了 :
+然后就可以在 x-utest 系统中看到`测试报告图表`了 :
 
 [点击这里查看](http://xtest.apiapp.cc/utest-report-share.html?stoken=2d1f91004a6711e7a6a000163e006b2607ca9d5b)
 
@@ -127,9 +130,9 @@ http://git.oschina.net/pinghailinfeng/nbmock
 
 # 项目实战
 
-为了让本项目有更实际的意义，所以决定将 xtest 这个系统的接口自动化测试项目给开源出来，大家可以一起看和点评，同时可以一起来写。
+为了让本项目有更实际的意义，所以决定将 x-utest 这个系统的接口自动化测试项目给开源出来，大家可以一起看和点评，同时可以一起来写。
 
-`./apps/` 目录下面就是 `xtest` 项目的接口自动化测试项目，用例在逐渐增加中，希望本测试项目和功能项目同步成长，让大家一起见证
+`./apps/` 目录下面就是 `x-utest` 项目的接口自动化测试项目，用例在逐渐增加中，希望本测试项目和功能项目同步成长，让大家一起见证
 
 一直苦于没有接口自动化项目实战经验的朋友，欢迎加入和讨论。
 

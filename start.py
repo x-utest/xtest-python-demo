@@ -51,7 +51,7 @@ if __name__ == '__main__':
     test_report = TestReport()
 
     # 将此处 IP 修改为你的 x-utest 测试系统的 IP
-    test_report.base_url = 'http://127.0.0.1:8009'
+    test_report.base_url = 'http://192.168.3.158:8009'
     
     auth_res = test_report.get_api_auth(
         app_id=app_id,

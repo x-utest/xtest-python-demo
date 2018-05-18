@@ -33,6 +33,7 @@ def dict_encode_test_results(test_results, **kwargs):
     run_time = kwargs.get('run_time', None)
     pro_id = kwargs.get('pro_id', None)
     pro_version = kwargs.get('pro_version', None)
+    tag = kwargs.get('tag', 'default')
 
     # 主体部分
     res_dict = dict(
@@ -44,7 +45,8 @@ def dict_encode_test_results(test_results, **kwargs):
         skipped=len(test_results.skipped),
         run_time=run_time,
         pro_id=pro_id,
-        pro_version=pro_version
+        pro_version=pro_version,
+        tag=tag
     )
 
     # 详细信息部分
@@ -121,7 +123,7 @@ class TestReport(object):
         )
 
         res = requests.post(url, data=post_data)
-        # print(res.text)
+        print(res.text)
         res_json = json.loads(res.text)
 
         if res_json['code'] != 200:
